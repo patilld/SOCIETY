@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/cssimport :: cssimport">
+	<title>Welcome to Shreeram society</title>
+</head>
+<div>
+	<th:block th:include="fragments/informationmessage :: informationmessage"></th:block>
+</div>
+<body>
+	<table>
+		<tr>
+			<td>
+				<table width="100%" cellspacing="0" cellpadding="0">
+					<tr>
+						<td class="templateSidebar" >
+							<!-- navigation block -->
+							<div>
+								
+							</div> <!-- end of navigation block -->
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<img name="customerImage" title="Customert" th:src="@{images/homepage/customerImage.jpg}" />
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/cssimport :: cssimport">
+	<title>Welcome to Shreeram society</title>q
+</head>
+<script type="text/javascript">
+jQuery(function() {
+	jQuery('#closebtn').click( function() { close() });
+	showPopup();
+	
+});
+
+function showPopup(){
+	jQuery('#block').fadeIn();
+	jQuery('#successAccountContainer').fadeIn();
+}
+
+function close() {  
+	jQuery('#block').fadeOut();
+	jQuery('#successAccountContainer').fadeOut(); 
+	location.href=$('meta[name=ctx]').attr('content')+'customerRegistration';
+}
+
+</script>
+<body>
+	<th:block th:if="${customerAccount != null}">
+		<div style="margin-left:30%; margin-top:10%;" id="successAccountContainer" class="modalRoundedDiv">
+			<table width="100%" cellpadding="0">
+				<tr height="30px">
+					<td width="100%" class="modalTdBottomLine" align="right">
+						<span id="closebtn" class="modalCloseButtonSpan">x</span>
+					</td>
+				</tr>
+				<div>
+					<th:block th:include="fragments/informationmessage :: informationmessage"></th:block>
+				</div>
+				<tr>
+					<td width="100%">
+						<table width="100%" class="textIndent10 marginBottom" cellspacing="0" cellpadding="0">
+							<tr>
+								<td class="slimDataBold">Customer name</td>
+								<td class="slimDataBoldBlack" th:text="${customerAccount.customerDetail.cdeTitle} +' '+ ${customerAccount.customerDetail.cdeFirstName} +' '+ ${customerAccount.customerDetail.cdeLastName}"></td>
+						 	</tr>
+							<tr>
+								<td class="slimDataBold">Customer account number</td>
+								<td class="slimDataBoldBlack" th:text="${T(Integer).parseInt(@environment.getProperty('accountNumber.startFrom')) + customerAccount.cacId}"></td>
+							</tr>
+							<tr>
+								<td class="slimDataBold">Account opening month</td>
+								<td class="slimDataBoldBlack" th:text="${customerAccount.cacOpeningMonth}"></td>
+							</tr>
+							<tr>
+								<td class="slimDataBold">Account opening balance</td>
+								<td class="slimDataBoldBlack" th:text="${customerAccount.cacOpeningBal}"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="paddingTop10"><button onclick="location.href=$('meta[name=ctx]').attr('content')+'customerRegistration'" type="button">Ok</button></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="block"></div>
+	</th:block>
+</body>
+</html>

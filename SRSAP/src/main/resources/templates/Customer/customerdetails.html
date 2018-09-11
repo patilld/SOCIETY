@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/cssimport :: cssimport">
+	<title>Welcome to Shreeram society</title>q
+</head>
+<script type="text/javascript" th:src="@{/pagespecificjs/customerregistration.js}"></script>
+<div>
+	<th:block th:include="fragments/informationmessage :: informationmessage"></th:block>
+</div>
+<body class="textColorBlue">
+	<table width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="templateSidebar" >
+				<!-- navigation block -->
+				<div>
+				</div> <!-- end of navigation block -->
+			</td>
+			<td class="paddingLeft50Px">
+				<table width="100%" cellspacing="0" cellpadding="0">
+					
+					<tr height="30px;" class="headerBackgroundBlue">
+						<td class="slimDataBlueBold backgroundBlue" align="center">Customer Details</td>
+					</tr>
+					<tr>
+						<td valign="top" width="100%" align="center" th:if="${customerAccountl != null}">
+							<table width="100%" class="textindent5 tableBorderLightBlue" cellspacing="0" cellpadding="0" >
+								<tr>
+									<td width="55%">
+										<table width="100%" class="textindent5 tableBorderLightBlue" cellspacing="0" cellpadding="0" >
+											<tbody>
+												<tr>
+													<td colspan="2" align="center">
+														<img height="120px" width="160px" border="0"  id="patientPhoto" th:src="@{${customerImage}}"></img>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="2" class="textCapitalize slimDataBlueBold" align="center">
+														<span th:if="${!#strings.isEmpty(customerAccountl.customerDetail.cdeTitle)}" th:text="|(${customerAccountl.customerDetail.cdeTitle})|"></span>
+														<span th:if="${!#strings.isEmpty(customerAccountl.customerDetail.cdeFirstName)}" th:text="| ${customerAccountl.customerDetail.cdeFirstName} |"></span>
+														<span th:if="${!#strings.isEmpty(customerAccountl.customerDetail.cdeLastName)}" th:text="${customerAccountl.customerDetail.cdeLastName}"></span>
+														
+														<span th:if="${!#strings.isEmpty(customerAccountNumber)}" th:text="|(${customerAccountNumber})|"></span>
+													</td>
+												</tr>
+												<tr>
+													<td colspan="2" class="borderBottomLightBlue">&nbsp;</td>
+												</tr>
+												<tr>
+													<td valign="top" width="50%">
+														<table width="100%" class="textindent5 trHeight" cellpadding="0" cellspacing="0" >
+															<tbody>	
+																<tr>
+																	<td class="slimDataLabelBlue backgroundBorderBottomLightBlue" width="50%">Current Gender</td>
+																	<th:block th:switch="${customerAccountl.customerDetail.cdeGender}">
+																		<td class="slimDataBlack borderBottomLightBlue" th:case="'M'" th:text="Male" align="left"></td>
+																		<td class="slimDataBlack borderBottomLightBlue" th:case="'F'" th:text="Female" align="left"></td>
+																		<td class="slimDataBlack borderBottomLightBlue" th:case="'I'" th:text="Indeterminate" align="left"></td>
+																		<td class="slimDataBlack borderBottomLightBlue" th:case="'U'" th:text="Not Known" align="left"></td>
+																	</th:block>
+																</tr>
+																<!-- <tr>
+																	<td class="slimDataLabelBlue backgroundBorderBottomLightBlue">Blood Type</td>
+																	<td class="slimDataBlack borderBottomLightBlue" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.mpaBloodGroup)} ? ${customerAccountl.customerDetail.mpaBloodGroup} : '-'"></td>																
+																</tr> -->
+																<tr>
+																	<td class="slimDataLabelBlue backgroundBorderBottomLightBlue">Born</td>
+																	<td class="slimDataBlack borderBottomLightBlue" align="left" th:text="${customerAccountl.customerDetail.cdeDob != null} ? ${#dates.format({customerAccountl.customerDetail.cdeDob}, 'dd/MM/yyyy')} : '-'"></td>
+																</tr>
+																<tr>
+																	<td class="slimDataLabelBlue backgroundBorderBottomLightBlue">Occupation</td>
+																	<td class="slimDataBlack borderBottomLightBlue" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.cdeOccupation)} ? ${customerAccountl.customerDetail.cdeOccupation} : '-'"></td>
+																</tr>
+																<tr>																			
+																	<td class="slimDataLabelBlue backgroundBorderBottomLightBlue">Religion</td>
+																	<td class="slimDataBlack borderBottomLightBlue" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.cdeReligion)} ? ${customerAccountl.customerDetail.cdeReligion} : '-'"></td>
+																</tr>
+															</tbody>
+														</table>
+													</td>
+													<td valign="top" width="50%">
+														<table width="100%" class=" trHeight" cellpadding="0" cellspacing="0">
+															<tbody>
+																
+															</tbody>
+														</table>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td width="20%" valign="top" th:if="${customerAccountl.customerDetail.address != null}">
+										<table width="100%" cellpadding="0" cellspacing="0" class="borderLeftLightBlue">
+											<tbody>
+												<tr class="headerBackgroundBlue">
+													<td valign="top" colspan="2" class="slimDataLabelBlueBold" align="center">Address</td>
+												</tr>
+												<tr>
+													<td width="50%">
+														<table  width="100%" cellpadding="0" cellspacing="0" class="tableBorderLightBlue">
+															<tr>
+																<td class="slimDataBlack" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addLine1)} ? ${customerAccountl.customerDetail.address.addLine1}"></td>
+															</tr>
+															<tr>
+																<td class="slimDataBlack" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addLine2)} ? ${customerAccountl.customerDetail.address.addLine2}"></td>
+															</tr>
+															<tr>
+																<td class="slimDataBlack" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addLine3)} ? ${customerAccountl.customerDetail.address.addLine3}"></td>
+															</tr>
+															<tr>
+																<td class="slimDataBlack" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addCity)} ? ${customerAccountl.customerDetail.address.addCity}"></td>
+															</tr>
+															<tr>
+																<td class="slimDataBlack" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addTaluka)} ? ${customerAccountl.customerDetail.address.addTaluka}"></td>
+															</tr>
+															<tr>
+																<td class="slimDataBlack" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addDistrict)} ? ${customerAccountl.customerDetail.address.addDistrict}"></td>
+															</tr>
+															<tr>
+																<td class="slimDataBlack" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addState)} ? ${customerAccountl.customerDetail.address.addState}"></td>
+															</tr>
+															<tr>
+																<td class="slimDataBlack" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addPostCode)} ? ${customerAccountl.customerDetail.address.addPostCode}"></td>
+															</tr>
+															<tr>
+																<td class="slimDataBlack" align="left" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addCountry)} ? ${customerAccountl.customerDetail.address.addCountry}"></td>
+															</tr>
+															<tr>
+																<td>
+																	<table width="100%" cellpadding="0" cellspacing="0" class="trHeight">
+																		<tbody>
+																			<tr>
+																				<td width="40%" align="left" class="slimDataLabelBlue borderRightBottomLightBlue">Email</td>
+																				<td width="60%" align="left" class="slimDataBlack borderBottomLightBlue" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addEmail)} ? ${patient.mpiAddress.addEmail} : '-'"></td>
+																			</tr>
+																			<tr>
+																				<td align="left" class="slimDataLabelBlue borderRightBottomLightBlue">Mobile</td>
+																				<td align="left" class="slimDataBlack borderBottomLightBlue" th:text="${!#strings.isEmpty(customerAccountl.customerDetail.address.addMobile)} ? ${customerAccountl.customerDetail.address.addMobile} : '-'"></td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr><td class="slimDataBold">&nbsp;</td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><th:block th:include="fragments/footer :: footer"></th:block></td>
+		</tr>
+	</table>
+</body>
+</html>

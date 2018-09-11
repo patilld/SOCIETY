@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<div th:fragment="informationmessage">
+		<script type="text/javascript">
+			<!--
+				function hideContent(d) {
+					d.style.display = "none";
+				}
+			//-->
+		</script>
+		<th:block th:if="${resultMessageSuccess != null and resultMessageSuccess != ''}">
+			<div style="display: block;" onclick="javascript:hideContent(this);">
+				<div class="alert alert-success" align="center">
+			    	<span class="slimData14" th:text="${resultMessageSuccess}"></span>
+			 	</div>
+			 </div>
+		</th:block>
+		<th:block th:if="${resultMessageInfo != null and resultMessageInfo != ''}">
+			<div style="display: block;" onclick="javascript:hideContent(this);">
+				<div class="alert alert-info" align="center">
+					<span class="slimData14" th:text="${resultMessageInfo}"></span>
+				</div>
+			</div>
+		</th:block>
+		<th:block th:if="${resultMessageWarning != null and resultMessageWarning != ''}">
+			<div style="display: block;" onclick="javascript:hideContent(this);">
+				<div class="alert alert-warning" align="center">
+					<span class="slimData14" th:text="${resultMessageWarning}"></span>
+				</div>	
+			</div>
+  		</th:block>
+		<th:block th:if="${resultMessageDanger != null and resultMessageDanger != ''}">
+			<div style="display: block;" onclick="javascript:hideContent(this);">
+				<div class="alert alert-danger" align="center">
+					<span class="slimData14" th:text="${resultMessageDanger}"></span>
+				</div>
+			</div>
+		</th:block>
+	</div>
+</body>
+</html>
+
+
+

@@ -1,5 +1,7 @@
 package com.achegaon.srsap.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +18,7 @@ import com.achegaon.srsap.domain.UserRole;
 
 @Repository
 public interface UserRoleRepository extends CrudRepository<UserRole, Integer>{
+
+	List<UserRole> findUserRoleByusrUseUsername(String username);
 
 }

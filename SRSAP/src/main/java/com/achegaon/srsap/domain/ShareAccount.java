@@ -3,9 +3,11 @@ package com.achegaon.srsap.domain;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * This is the ShareAccount domain for share_accounts in database
@@ -15,10 +17,12 @@ import javax.persistence.Id;
  * 
  */
 
+@Entity
+@Table(name = "share_accounts")
 public class ShareAccount {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sac_id", nullable = false)
 	private Integer sacId;
 	

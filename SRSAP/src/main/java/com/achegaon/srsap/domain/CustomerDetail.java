@@ -3,11 +3,15 @@ package com.achegaon.srsap.domain;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -27,7 +31,7 @@ public class CustomerDetail {
 	@Column(name = "cde_id", nullable = false)
 	private Integer cdeId;
 	
-	@Column(name = "cde_add_id")
+	@Column(name = "cde_add_id", insertable = false, updatable = false)
 	private Integer cdeAddId;
 	
 	@Column(name = "cde_title", length = 10)
@@ -59,6 +63,18 @@ public class CustomerDetail {
 	
 	@Column(name = "cde_created_by", length = 45)
 	private String cdeCreatedBy;
+	
+	@OneToOne(optional=true, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="cde_add_id", updatable=false, insertable=true)
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public Integer getCdeId() {
 		return cdeId;

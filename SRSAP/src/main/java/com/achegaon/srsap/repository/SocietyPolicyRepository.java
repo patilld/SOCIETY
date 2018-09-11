@@ -17,4 +17,6 @@ import com.achegaon.srsap.domain.SocietyPolicy;
 @Repository
 public interface SocietyPolicyRepository extends CrudRepository<SocietyPolicy, Integer> {
 
+	SocietyPolicy findTopSocietyPolicyByOrderBySplUpdatedDesc();
+
 }

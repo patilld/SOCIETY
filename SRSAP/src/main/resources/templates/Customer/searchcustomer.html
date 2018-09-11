@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/cssimport :: cssimport">
+	<title>Welcome to Shreeram society</title>q
+</head>
+
+<div>
+	<th:block th:include="fragments/informationmessage :: informationmessage"></th:block>
+</div>
+<body class="textColorBlue">
+	<table width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="templateSidebar" >
+				<!-- navigation block -->
+				<div>
+				</div> <!-- end of navigation block -->
+			</td>
+			<td class="paddingLeft50Px">
+				<table width="100%" cellspacing="0" cellpadding="0">
+					<tr>
+						<td class="slimDataTitleBold16">
+							Find Customer
+						</td>
+					</tr>
+					<tr height="50px"></tr>
+					<tr>
+						<td>
+							<form id="frm1" name="frm1" th:action="@{searchCustomer}" th:object="${searchCustomerForm}" th:method="POST">
+								<table width="100%" cellspacing="0" cellpadding="0">
+									<tr>
+										<td class="slimDataBold">Account Number</td>
+										<td class="slimDataBold">First Name</td>
+										<td class="slimDataBold">Last Name</td>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td><input type="text" th:field="*{cacNumber}"></input></td>
+										<td><input type="text" th:field="*{cdeFirstName}"></input></td>
+										<td><input type="text" th:field="*{cdeLastName}"></input></td>
+										<td><button type="button" >Search</button></td>
+									</tr>
+								</table>
+							</form>
+						</td>
+					</tr>
+					<tr><td>&nbsp;</td></tr>
+						
+					 <tr>
+						<td colspan="12">
+							<table width="100%" class="display">
+								
+								<th:block th:if="${#lists.isEmpty(customerList) and searchedCustomer == 'true'">
+							    	 <tr>
+								    	<td class="slimData">
+								    		No records found with this search criteria
+								    	</td>
+					    			</tr>
+							    </th:block>
+								<th:block th:if="${!#lists.isEmpty(customerList)}">
+									<thead>
+										<tr>
+											<td class="slimDataBold resultTableHeader resultTableHeaderLeft padding9">Account Number</td>
+											<td class="slimDataBold resultTableHeader resultTableHeaderRight padding9">First Name</td>
+											<td class="slimDataBold resultTableHeader padding9">Last Name</td>
+											<td class="slimDataBold resultTableHeader padding9">Gender</td>
+											<td class="slimDataBold resultTableHeader padding9">Born</td>
+											<td class="slimDataBold resultTableHeader padding9">Status</td> 
+											<td  class="slimDataBold resultTableHeader padding9">View</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="customerAccount : ${customerList}">
+											<td class="slimData" th:text="${T(Integer).parseInt(@environment.getProperty('accountNumber.startFrom')) + customerAccount.cacaId}"></td>
+											<td class="slimData" th:text="${customerAccount.customerDetail.cdeFirstName}"></td>
+											<td class="slimData" th:text="${customerAccount.customerDetail.cdeLastName}"></td>
+											<td class="slimData">
+												<th:block th:if="${customerAccount.customerDetail.cdeGender != null and customerAccount.customerDetail.cdeGender == 'M'}">
+													Male
+												</th:block>
+												
+												<th:block th:if="${customerAccount.customerDetail.cdeGender != null and customerAccount.customerDetail.cdeGender == 'F'}">
+													Female
+												</th:block>
+												
+												<th:block th:if="${customerAccount.customerDetail.cdeGender != null and customerAccount.customerDetail.cdeGender == 'U'}">
+													Unknown
+												</th:block>
+												
+												<th:block th:if="${customerAccount.customerDetail.cdeGender != null and customerAccount.customerDetail.cdeGender == 'I'}">
+													Indeterminate
+												</th:block>					
+											</td>
+											<th:block th:if="${customerAccount.customerDetail.cdeDob != null and customerAccount.customerDetail.cdeDob != ''}">
+												<td class="slimData" th:text="${#dates.format(customerAccount.customerDetail.cdeDob, 'dd-MM-yyyy')}"></td>
+											</th:block>
+											<th:block th:if="${customerAccount.customerDetail.cdeDob == null or customerAccount.customerDetail.cdeDob == ''}">
+												<td class="slimData" th:text=""></td>
+											</th:block>
+											<td th:text="${customerAccount.cacActive == 1 ? 'Active' : 'Inactive'}"></td> 
+											<td class="slimData">
+												<a th:href="@{selectTheCustomer(${customerAccount.cacId})}">View</a>
+											</td>
+										</tr>
+									</tbody>
+								</th:block>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/cssimport :: cssimport">
+	<title>Welcome to Shreeram society</title>
+</head>
+<script type="text/javascript" th:src="@{/pagespecificjs/customerregistration.js}"></script>
+<div>
+	<th:block th:include="fragments/informationmessage :: informationmessage"></th:block>
+</div>
+<body>
+	<table width="100%">
+		<tr>
+			<td class="templateSidebar" >
+				<!-- navigation block -->
+				<div>
+					<th:block th:include="fragments/sidebar :: sidebar" ></th:block>
+				</div> <!-- end of navigation block -->
+			</td>
+			<td class="paddingLeft50Px">
+				<table width="100%">
+					<tr>
+						<td class="slimDataTitleBold16">
+							Customer Report
+						</td>
+					</tr>
+					<tr height="50px"></tr>
+					<tr>
+						<td>
+							<a th:href="@{downloadAccountNumberReport}" class="slimDataBold textBlue">PDF download</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table id="accountTable" width="50%" class="borderCollapse">
+								<thead>
+									<tr>
+										<td class="borderCollapseCell slimDataBold">Name</td>
+										<td class="borderCollapseCell slimDataBold">Account Number</td>
+									</tr>
+								</thead>
+								<tbody>
+									<th:block th:if="${customerAccountList != null and !customerAccountList.isEmpty()}" th:each="customerAccount : ${customerAccountList}">
+										<tr>
+											<td class="borderCollapseCell slimData" th:text="${customerAccount.customerDetail.cdeTitle} + ' ' + ${customerAccount.customerDetail.cdeFirstName} + ' ' + ${customerAccount.customerDetail.cdeMiddleName} + ' ' + ${customerAccount.customerDetail.cdeLastName}"></td>
+											<td class="borderCollapseCell slimData" th:text="${T(Integer).parseInt(@environment.getProperty('accountNumber.startFrom')) + customerAccount.cacId}"></td>
+										</tr>
+									</th:block>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="copyright">
+				<th:block th:include="fragments/footer :: footer"></th:block>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

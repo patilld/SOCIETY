@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/cssimport :: cssimport"></head>
+<title>Welcome to Shreeram society</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<link rel="stylesheet" type="text/css" th:href="@{css/style.css}"></link>
+<!--Google Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'></link>
+<!--Google Fonts-->
+<script type="text/javascript" th:src="@{pagespecificjs/login.js}"></script>
+<script>
+	$(document).ready(function() {
+		$( "span.menu").click(function() {
+			$(  "ul.res" ).slideToggle("slow", function() {
+			 // Animation complete.
+			 });
+		});
+	});
+</script>
+
+<div>
+	<th:block th:include="fragments/informationmessage :: informationmessage"></th:block>
+</div>
+<body>
+	<div class="app">
+		<div class="top-bar">
+			<div class="navg">
+				<span class="menu"><img src="images/menu.png" alt=""/></span>
+				<ul class="res">
+					<li><a class="active scroll" href="#coffee">Menu</a></li>
+					<li><a class="scroll" href="#about">Tools</a></li>
+					<li><a class="scroll" href="#about">Settings</a></li>
+					<li><a class="scroll" href="#contact">Login</a></li>
+				</ul>
+			</div>
+			<h2>Welcome</h2>
+		</div>
+		<div class="cam-img">
+			 <img src="images/cam.png" alt=""/>
+		</div>
+		<form id="frm1" name="frm1" th:action="@{/login}" th:object="${loginForm}" th:method="POST">
+			<input type="text" id="username" name="username" placeholder="Username"></input>
+			<input type="password" id="password" name="password" placeholder="Password"></input>
+			<input type="submit" value="Authenticate"></input>
+		</form>
+	</div>
+	<div class="copyright">
+		<th:block th:include="fragments/footer :: footer"></th:block>
+	</div>
+	<!--sign up form end here-->
+</body>
+</html>
