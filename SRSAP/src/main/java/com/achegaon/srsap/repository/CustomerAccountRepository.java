@@ -18,8 +18,8 @@ import com.achegaon.srsap.repositorycustom.CustomerAccountRepositoryCustom;
  */
 
 @Repository
-public interface CustomerAccountRepository extends CrudRepository<CustomerAccount, Integer>, CustomerAccountRepositoryCustom {
+public interface CustomerAccountRepository extends CrudRepository<CustomerAccount, Integer> {
 
-	List<CustomerAccount> findAllByOrderByCustomerDetail_CdeFirstNameAsc();
+	List<CustomerAccount> findCustomerAccountByOrderByCustomerDetail_CdeFirstNameAsc();
 
 }

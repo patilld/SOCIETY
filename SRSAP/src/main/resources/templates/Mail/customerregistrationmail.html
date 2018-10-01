@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title th:remove="all">Customer Registration</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/custommail.css}"></link>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <p th:text="#{mail.greeting(${name})}">
+      Hello, !
+    </p>
+    <p>
+      You have successfully registered with <!-- [[#{society.name}]] --> Shreeram society Achegaon Pune.<br>
+      Please find account details below
+    </p>
+    <p>
+    	<table>
+    		<thead>
+    			<tr>
+    				<th>Account Number</th>
+	    			<th>Account Name</th>
+	    			<th>Mail Id</th>
+	    			<th>Phone Number</th>
+	    			<th>Opening Date</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr th:if="${customerAccount != null}">
+    				<td th:text="${customerAccount.customerDetail.cdeTitle} +' '+ ${customerAccount.customerDetail.cdeFirstName} +' '+ ${customerAccount.customerDetail.cdeLastName}"></td>
+    				<td th:text="${accountNumberStartFrom + customerAccount.cacId}"></td>
+    				<td th:text="${customerAccount.customerDetail.address.addEmail}"></td>
+    				<td th:text="${customerAccount.customerDetail.address.addMobile}"></td>
+    				<td th:text="${#dates.format({customerAccount.cacOpened}, 'dd/MM/yyyy')}"></td>
+    			</tr>
+    		</tbody>
+    	</table>
+  	</p>	
+    	
+    <p>
+     	If you have any queries regarding your account. Please feel free to contact.
+    </p>
+    <p>
+      Regards, <br />
+      <em>Shreeram Society Achegaon Pune</em>
+    </p>
+  </body>
+</html>

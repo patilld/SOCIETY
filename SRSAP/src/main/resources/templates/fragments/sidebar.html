@@ -1,0 +1,97 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/cssimport :: cssimport"></head>
+<body>
+	<div th:fragment="sidebar">
+    	<link rel="stylesheet" type="text/css" th:href="@{css/all.css}"></link>
+     	<link rel="stylesheet" type="text/css" th:href="@{css/sidebar.css}"></link>
+
+		<div class="nav-side-menu">
+    		<div class="brand">Shreeram Society</div>
+    		<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  
+        	<div class="menu-list">
+  
+            	<ul id="menu-content" class="menu-content collapse out">
+                	<li>
+                  		<a th:href="@{homepage}">
+                  			<i class="fas fa-tachometer-alt fa-lg"></i> Homepage
+                  		</a>
+                	</li>
+                	
+                <!-- Start customer menu -->
+                	<li  data-toggle="collapse" data-target="#customer" class="collapsed">
+	                 	<a href="#">
+	                 		<i class="fas fa-user-tie fa-lg"></i> Customer<span class="arrow"></span>
+	                  	</a>
+	                </li>
+	                <ul class="sub-menu collapse" id="customer">
+	                    <li class="active">
+	                    	<a th:href="@{searchCustomer}">Search</a>
+	                    </li>
+	                    <li><a th:href="@{customerRegistration}">Registration</a></li>
+	                </ul>
+	            <!--  End customer menu -->
+	                
+	            <!-- Start PDF Report -->
+	            	<li  data-toggle="collapse" data-target="#pdfReport" class="collapsed">
+	                 	<a href="#">
+	                 		<i class="fas fa-file-alt fa-lg"></i> Report<span class="arrow"></span>
+	                  	</a>
+	                </li>
+	                <ul class="sub-menu collapse" id="pdfReport">
+	                    <li class="active">
+	                    	<a th:href="@{accountNumberReport}">Account Number</a>
+	                    </li>
+	                </ul>
+	            <!-- End PDF Report -->
+	            
+	            
+                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                  <a href="#"><i class="fab fa-studiovinari fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li class="active"><a href="#">CSS3 Animation</a></li>
+                    <li><a href="#">General</a></li>
+                    <li><a href="#">Buttons</a></li>
+                    <li><a href="#">Tabs & Accordions</a></li>
+                    <li><a href="#">Typography</a></li>
+                    <li><a href="#">FontAwesome</a></li>
+                    <li><a href="#">Slider</a></li>
+                    <li><a href="#">Panels</a></li>
+                    <li><a href="#">Widgets</a></li>
+                    <li><a href="#">Bootstrap Model</a></li>
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                  <a href="#"><i class="fab fa-fort-awesome-alt fa-lg"></i> Services <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="service">
+                  <li>New Service 1</li>
+                  <li>New Service 2</li>
+                  <li>New Service 3</li>
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                  <a href="#"><i class="fab fa-pagelines fa-lg"></i> New <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="new">
+                  <li>New New 1</li>
+                  <li>New New 2</li>
+                  <li>New New 3</li>
+                </ul>
+
+
+                 
+
+                 <li>
+                  <a href="#">
+                  <i class="fa fa-users fa-lg"></i> Users
+                  </a>
+                </li>
+            </ul>
+     </div>
+</div>
+</body>
+</html>

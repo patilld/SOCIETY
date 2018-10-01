@@ -54,7 +54,7 @@ public class AccountNumberReportService {
 	private String srsapDirectory;
 	
 	public List<CustomerAccount> getCustomerAccount() {
-		return customerAccountRepository.findAllByOrderByCustomerDetail_CdeFirstNameAsc();
+		return customerAccountRepository.findCustomerAccountByOrderByCustomerDetail_CdeFirstNameAsc();
 	}
 	
 	class HeaderFooter extends PdfPageEventHelper {
@@ -118,7 +118,7 @@ public class AccountNumberReportService {
 	
 	public PdfPTable createPdfTable() throws DocumentException {
 		
-		List<CustomerAccount> customerAccountList = customerAccountRepository.findAllByOrderByCustomerDetail_CdeFirstNameAsc();
+		List<CustomerAccount> customerAccountList = customerAccountRepository.findCustomerAccountByOrderByCustomerDetail_CdeFirstNameAsc();
 		
 		PdfPTable table = new PdfPTable(3);
 		table.setWidths(new int[]{1, 3, 2});

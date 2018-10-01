@@ -19,5 +19,5 @@ import com.achegaon.srsap.domain.CustomerAccount;
 @NoRepositoryBean
 public interface CustomerAccountRepositoryCustom {
 	
-	List<CustomerAccount> searchCustomerBySearchCriteria(Integer cacId, String cdeFirstName, String cdeLastName);
+	//List<CustomerAccount> searchCustomerBySearchCriteria(Integer cacId, String cdeFirstName, String cdeLastName);
 }

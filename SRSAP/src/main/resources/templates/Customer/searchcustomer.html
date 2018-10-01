@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en" th:include="fragments/cssimport :: cssimport">
-	<title>Welcome to Shreeram society</title>q
+	<title></title>
 </head>
 
 <div>
@@ -13,6 +13,7 @@
 			<td class="templateSidebar" >
 				<!-- navigation block -->
 				<div>
+					<th:block th:include="fragments/sidebar :: sidebar"></th:block>
 				</div> <!-- end of navigation block -->
 			</td>
 			<td class="paddingLeft50Px">
@@ -49,7 +50,7 @@
 						<td colspan="12">
 							<table width="100%" class="display">
 								
-								<th:block th:if="${#lists.isEmpty(customerList) and searchedCustomer == 'true'">
+								<th:block th:if="${#lists.isEmpty(customerList) and searchedCustomer != null}">
 							    	 <tr>
 								    	<td class="slimData">
 								    		No records found with this search criteria

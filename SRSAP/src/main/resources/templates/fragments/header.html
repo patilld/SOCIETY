@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>Insert title here</title>
+</head>
+<body th:href="@{/homepage}" >
+	<div>
+		<div th:fragment="header">
+			<table cellspacing="0" cellpadding="0" width="100%" border="0" id="topheaderbar">
+				<tbody>
+					<tr id="topheaderbar16">
+						<td>
+							<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+								<tr>
+									<td class="slimDataWhiteBoldheader" align="center" valign="top" colspan="1" width="100%" height="50px">
+										<div>Shreeram Society</div>
+									</td>
+									<td colspan="1" align="left" width="110px" valign="middle" height="50px" id="cellmaLogoLogin">
+										<a th:href="@{/homepage}">
+											<img th:src="@{/images/new_cellma_logo_big.png}" border="0"></img>
+										</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

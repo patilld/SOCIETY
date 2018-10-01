@@ -1,8 +1,12 @@
 package com.achegaon.srsap.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 
+import javax.mail.MessagingException;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,7 +48,7 @@ public class LoginController {
 	MessageByLocaleService messageByLocaleService;
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String index(Model model, HttpServletRequest request, HttpServletResponse response) {
+	public String index(Model model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, MessagingException {
 		
 		HttpSession session = request.getSession(false);
 		SessionBean sb = null;
@@ -55,7 +59,7 @@ public class LoginController {
 			}
 			String sessionId = loginService.getUserSessionId(sb.getUseUsername());
 			if(Objects.equals(sessionId, sb.getUseSessionId())) {
-				return "Login/homepage";
+				return "redirect:homepage";
 			}
 		}
 		
@@ -92,7 +96,7 @@ public class LoginController {
 		
 		boolean isValidUser = loginService.isValidUser(username, password, request);
 		if(isValidUser) {
-			return "Login/homepage";
+			return "redirect:homepage";
 		}
 		
 		String resultMessageDanger = (String) request.getAttribute("resultMessageDanger");

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en" th:include="fragments/cssimport :: cssimport">
-	<title>Welcome to Shreeram society</title>q
+	<title></title>
 </head>
 <script type="text/javascript" th:src="@{/pagespecificjs/customerregistration.js}"></script>
 <div>
@@ -13,6 +13,7 @@
 			<td class="templateSidebar" >
 				<!-- navigation block -->
 				<div>
+					<th:block th:include="fragments/sidebar :: sidebar"></th:block>
 				</div> <!-- end of navigation block -->
 			</td>
 			<td class="paddingLeft50Px">

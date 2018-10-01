@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en" th:include="fragments/cssimport :: cssimport">
-	<title>Welcome to Shreeram society</title>
+	<title></title>
 </head>
 <div>
 	<th:block th:include="fragments/informationmessage :: informationmessage"></th:block>
 </div>
-<body>
-	<table>
+<body class="textColorBlue">
+	<table width="100%" cellspacing="0" cellpadding="0">
 		<tr>
-			<td>
-				<table width="100%" cellspacing="0" cellpadding="0">
-					<tr>
-						<td class="templateSidebar" >
-							<!-- navigation block -->
-							<div>
-								
-							</div> <!-- end of navigation block -->
-						</td>
-					</tr>
-				</table>
+			<td colspan="2">
+				<div>
+					<th:block th:include="fragments/header :: header"></th:block>
+				</div>
 			</td>
-			<td>
+		</tr>
+		<tr>
+			<td class="templateSidebar" >
+				<!-- navigation block -->
+				<div>
+					<th:block th:include="fragments/sidebar :: sidebar"></th:block>
+				</div> <!-- end of navigation block -->
+			</td>
+			<td class="paddingLeft50Px">
 				<img name="customerImage" title="Customert" th:src="@{images/homepage/customerImage.jpg}" />
 			</td>
+			
 		</tr>
 	</table>
 </body>

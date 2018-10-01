@@ -6,6 +6,22 @@ body {
 	background-color: #f7f7f7 !important;
 }
 
+#topheaderbar {
+	background-color: #;
+	color: #FFFFFF;
+}
+
+#topheaderbar TD{
+	font-size:14px;
+}
+
+#topheaderbar16 TD{
+	font-size:16px;
+}
+
+td.templateSidebar {
+	width: 17%;
+}
 
 td.slimDataFooterBold {
 	font-weight: bold;
@@ -128,6 +144,10 @@ td.copyright {
 	padding-left: 50px;
 }
 
+.paddingLeft10px{
+	pading-left: 10px;
+}
+
 .asteriskRed {
     color: red;
 }
@@ -221,4 +241,8 @@ body.textColorBlue {
 
 .textBlue {
 	color: #0000ff;
+}
+
+.marginLeft10px{
+	margin-left: 10px !important;
 }

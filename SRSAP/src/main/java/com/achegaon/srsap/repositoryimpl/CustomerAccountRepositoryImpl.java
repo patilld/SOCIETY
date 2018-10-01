@@ -22,13 +22,13 @@ public class CustomerAccountRepositoryImpl implements CustomerAccountRepositoryC
 	@PersistenceContext
 	private EntityManager em;
 
-	@Override
+	/*@Override
 	public List<CustomerAccount> searchCustomerBySearchCriteria(Integer cacId, String cdeFirstName, String cdeLastName) {
 
 		String queryString = "FROM CustomerAccount c WHERE c.cacId IS NOT NULL";
 		
 		if(cacId != null && cacId.intValue() > 0) {
-			queryString = queryString + " AND caxId = " + cacId;
+			queryString = queryString + " AND cacId = " + cacId;
 		}
 		
 		if(cdeFirstName != null && !cdeFirstName.isEmpty()) {
@@ -41,5 +41,5 @@ public class CustomerAccountRepositoryImpl implements CustomerAccountRepositoryC
 		
 		Query query = em.createQuery(queryString);
 		return query.getResultList();
-	}
+	}*/
 }

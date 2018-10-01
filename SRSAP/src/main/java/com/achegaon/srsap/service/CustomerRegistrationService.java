@@ -1,7 +1,10 @@
 package com.achegaon.srsap.service;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.sql.Timestamp;
+
+import javax.mail.MessagingException;
 
 import org.joda.time.DateTime;
 import org.joda.time.Months;
@@ -20,6 +23,7 @@ import com.achegaon.srsap.form.CustomerRegistrationForm;
 import com.achegaon.srsap.repository.CustomerAccountRepository;
 import com.achegaon.srsap.repository.SocietyPolicyRepository;
 import com.achegaon.srsap.util.DateUtils;
+import com.achegaon.srsap.util.mail.RegistrationMailUtils;
 
 /**
  * The CustomerRegistrationService for AddCustomerController
@@ -37,6 +41,9 @@ public class CustomerRegistrationService {
 	
 	@Autowired
 	private SocietyPolicyRepository societyPolicyRepository;
+	
+	@Autowired
+	private RegistrationMailUtils registrationMailUtils;
 	
 	public CustomerRegistrationDisplayBean getCustomerRegistrationBean() {
 		SocietyPolicy societyPolicy = societyPolicyRepository.findTopSocietyPolicyByOrderBySplUpdatedDesc();
@@ -144,6 +151,15 @@ public CustomerAccount saveCustomerDetails(CustomerRegistrationForm customerRegi
 		customerAccount = customerAccountRepository.save(customerAccount);
 			
 		if(customerAccount != null && customerAccount.getCacId() != null && customerAccount.getCacId().intValue() > 0) {
+			try {
+				registrationMailUtils.customerRegistrationMail(customerAccount);
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			return customerAccount;
 		}
 		return null;
