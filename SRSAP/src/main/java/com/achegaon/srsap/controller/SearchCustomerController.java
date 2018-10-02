@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.achegaon.srsap.domain.CustomerAccount;
 import com.achegaon.srsap.form.SearchCustomerForm;
@@ -71,8 +71,8 @@ public class SearchCustomerController {
 		return "Customer/searchcustomer";
 	}
 	
-	@RequestMapping(value = "/selectTheCustomer/{cacId}", method = RequestMethod.GET)
-	public String selectTheCustomer(Model model, HttpServletRequest request, @PathVariable("cacId") Integer cacId) {
+	@RequestMapping(value = "/selectTheCustomer", method = RequestMethod.GET)
+	public String selectTheCustomer(Model model, HttpServletRequest request, @RequestParam("cacId") Integer cacId) {
 		HttpSession session = request.getSession(false);
 		SessionBean sb = null;
 		if(session != null) {

@@ -59,6 +59,13 @@ TD.slimDataBoldBlack {
 	color:black;
 }
 
+.slimDataBlack {
+	padding: 0;
+	vertical-align: middle;
+	font-size: 12px;
+	color: black;
+}
+
 input {
 	font-weight: bold !important;
 	font-size: 12px !important;
@@ -127,7 +134,7 @@ div.displayAsHide, input.displayAsHide{
     color: #ffffff;
 }
 
-table.trHeight, tr {
+table.trHeight tr {
 	height: 30px;
 }
 
@@ -245,4 +252,73 @@ body.textColorBlue {
 
 .marginLeft10px{
 	margin-left: 10px !important;
+}
+
+.headerBackgroundBlue {
+	background-color: #d5ebf5;
+}
+
+.slimDataBlueBold {
+	font-weight: bold;
+	padding: 0;
+	vertical-align: middle;
+	font-size: 16px;
+	color: #1b99d6;
+}
+
+.backgroundBlue {
+	background-color: #e1eff5;
+}
+
+.tableBorderLightBlue {
+	border: 1px solid #d6ecf6;
+}
+
+Table.textindent5{
+	text-indent: 5px;
+}
+
+.textCapitalize {
+	text-transform: capitalize;
+}
+
+.borderBottomLightBlue {
+	border-bottom-color: #c1e1f5;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+.slimDataLabelBlue {
+	padding: 0;
+	vertical-align: middle;
+	font-size: 12px;
+	color: #1b99d6;
+}
+
+.backgroundBorderBottomLightBlue {
+	background-color: #e1eff5;
+	border-bottom: 1px solid #c1e1f5;
+}
+
+.slimDataLabelBlueBold {
+	padding: 0;
+	vertical-align: middle;
+	font-size: 12px;
+	color: #1b99d6;
+	font-weight: bold;
+}
+
+.borderLeftLightBlue {
+	border-left: 1px solid #d6ecf6;
+}
+
+.borderRightLightBlue {
+	border-right: 1px solid #d6ecf6;
+}
+
+.borderRightBottomLightBlue {
+	border-right: 1px solid #d6ecf6;
+	border-bottom-color: #d6ecf6;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
 }

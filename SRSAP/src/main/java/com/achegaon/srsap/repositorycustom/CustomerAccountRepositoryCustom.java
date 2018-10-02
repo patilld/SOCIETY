@@ -2,8 +2,6 @@ package com.achegaon.srsap.repositorycustom;
 
 import java.util.List;
 
-import javax.persistence.PersistenceContext;
-
 import org.springframework.data.repository.NoRepositoryBean;
 
 import com.achegaon.srsap.domain.CustomerAccount;
@@ -19,5 +17,5 @@ import com.achegaon.srsap.domain.CustomerAccount;
 @NoRepositoryBean
 public interface CustomerAccountRepositoryCustom {
 	
-	//List<CustomerAccount> searchCustomerBySearchCriteria(Integer cacId, String cdeFirstName, String cdeLastName);
+	List<CustomerAccount> searchCustomerBySearchCriteria(Integer cacId, String cdeFirstName, String cdeLastName);
 }

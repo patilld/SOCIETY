@@ -80,7 +80,7 @@ public class CustomerRegistrationService {
 		return Integer.valueOf((int) Math.ceil((double)(month * spl.getSplMonthlyShare()) * spl.getSplLateOpeningChargePercent() / 100));
 	}
 	
-public CustomerAccount saveCustomerDetails(CustomerRegistrationForm customerRegistrationForm, String username, String fromCurrentMonth) {
+	public CustomerAccount saveCustomerDetails(CustomerRegistrationForm customerRegistrationForm, String username, String fromCurrentMonth) {
 		
 		DateUtils du = new DateUtils();
 		Timestamp currentTimestamp = du.createCurrentTimestamp();

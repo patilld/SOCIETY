@@ -62,7 +62,7 @@ public class SearchCustomerService {
 				cacId = customerAccount.getCacId();
 			}
 			
-			return null;//customerAccountRepository.searchCustomerBySearchCriteria(cacId, searchCustomerForm.getCdeFirstName(), searchCustomerForm.getCdeLastName());
+			return customerAccountRepository.searchCustomerBySearchCriteria(cacId, searchCustomerForm.getCdeFirstName(), searchCustomerForm.getCdeLastName());
 		}
 		return null;
 	}

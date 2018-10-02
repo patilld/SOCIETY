@@ -6,6 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.achegaon.srsap.domain.CustomerAccount;
 import com.achegaon.srsap.repositorycustom.CustomerAccountRepositoryCustom;
 
@@ -17,12 +20,15 @@ import com.achegaon.srsap.repositorycustom.CustomerAccountRepositoryCustom;
  * 
  */
 
+@Repository
+@Transactional(readOnly = true)
 public class CustomerAccountRepositoryImpl implements CustomerAccountRepositoryCustom {
 	
 	@PersistenceContext
 	private EntityManager em;
 
-	/*@Override
+	@Override
+	@SuppressWarnings("unchecked")
 	public List<CustomerAccount> searchCustomerBySearchCriteria(Integer cacId, String cdeFirstName, String cdeLastName) {
 
 		String queryString = "FROM CustomerAccount c WHERE c.cacId IS NOT NULL";
@@ -41,5 +47,5 @@ public class CustomerAccountRepositoryImpl implements CustomerAccountRepositoryC
 		
 		Query query = em.createQuery(queryString);
 		return query.getResultList();
-	}*/
+	}
 }
