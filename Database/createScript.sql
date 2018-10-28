@@ -77,17 +77,30 @@ CREATE TABLE share_accounts (
   PRIMARY KEY(sac_id)
 );
 
-CREATE TABLE society_accounts (
+CREATE TABLE societies (
   soc_id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
-  soc_cac_id MEDIUMINT(8) UNSIGNED NOT NULL,
-  soc_sac_amount INTEGER UNSIGNED NULL,
-  soc_lac_amount INTEGER UNSIGNED NULL,
-  soc_emergency_amount INTEGER UNSIGNED NULL,
-  soc_loan_given_amount INTEGER UNSIGNED NULL,
-  soc_fund INTEGER UNSIGNED NULL,
-  soc_transacted TIMESTAMP NULL,
-  soc_transacted_by VARCHAR(45) NULL,
+  soc_name VARCHAR(60) NOT NULL,
+  soc_license_start_date TIMESTAMP NULL,
+  soc_license_end_date TIMESTAMP NULL,
+  soc_is_active TINYINT(1) NULL,
+  soc_created_by VARCHAR(45) NOT NULL,
+  soc_created TIMESTAMP NOT NULL,
+  soc_updated_by VARCHAR(45) NULL,
+  soc_updated TIMESTAMP NULL,
   PRIMARY KEY(soc_id)
+);
+
+CREATE TABLE society_accounts (
+  soa_id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
+  soa_cac_id MEDIUMINT(8) UNSIGNED NOT NULL,
+  soa_sac_amount INTEGER UNSIGNED NULL,
+  soa_lac_amount INTEGER UNSIGNED NULL,
+  soa_emergency_amount INTEGER UNSIGNED NULL,
+  soa_loan_given_amount INTEGER UNSIGNED NULL,
+  soa_fund INTEGER UNSIGNED NULL,
+  soa_transacted TIMESTAMP NULL,
+  soa_transacted_by VARCHAR(45) NULL,
+  PRIMARY KEY(soa_id)
 );
 
 CREATE TABLE society_policies (

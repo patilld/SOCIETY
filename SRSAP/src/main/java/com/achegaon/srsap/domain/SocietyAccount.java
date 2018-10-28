@@ -23,103 +23,103 @@ public class SocietyAccount {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "soc_id", nullable = false)
-	private Integer socId;
+	@Column(name = "soa_id", nullable = false)
+	private Integer soaId;
 	
-	@Column(name = "soc_cac_id", nullable = false)
-	private Integer socCacId;
+	@Column(name = "soa_cac_id", nullable = false)
+	private Integer soaCacId;
 
-	@Column(name = "soc_sac_amount")
-	private Integer socSacAmount;
+	@Column(name = "soa_sac_amount")
+	private Integer soaSacAmount;
 
-	@Column(name = "soc_lac_amount")
-	private Integer socLacAmount;
+	@Column(name = "soa_lac_amount")
+	private Integer soaLacAmount;
 	
-	@Column(name = "soc_emergency_amount")
-	private Integer socEmergencyAmount;
+	@Column(name = "soa_emergency_amount")
+	private Integer soaEmergencyAmount;
 	
-	@Column(name = "soc_loan_given_amount")
-	private Integer socLoanGivenAmount;
+	@Column(name = "soa_loan_given_amount")
+	private Integer soaLoanGivenAmount;
 	
-	@Column(name = "soc_fund")
-	private Integer socFund;
+	@Column(name = "soa_fund")
+	private Integer soaFund;
 	
-	@Column(name = "soc_transacted")
-	private Timestamp socTransacted;
+	@Column(name = "soa_transacted")
+	private Timestamp soaTransacted;
 	
-	@Column(name = "soc_transacted_by", length = 45)
-	private String socTransactedBy;
+	@Column(name = "soa_transacted_by", length = 45)
+	private String soaTransactedBy;
 
-	public Integer getSocId() {
-		return socId;
+	public Integer getSoaId() {
+		return soaId;
 	}
 
-	public void setSocId(Integer socId) {
-		this.socId = socId;
+	public void setSoaId(Integer soaId) {
+		this.soaId = soaId;
 	}
 
-	public Integer getSocCacId() {
-		return socCacId;
+	public Integer getSoaCacId() {
+		return soaCacId;
 	}
 
-	public void setSocCacId(Integer socCacId) {
-		this.socCacId = socCacId;
+	public void setSoaCacId(Integer soaCacId) {
+		this.soaCacId = soaCacId;
 	}
 
-	public Integer getSocSacAmount() {
-		return socSacAmount;
+	public Integer getSoaSacAmount() {
+		return soaSacAmount;
 	}
 
-	public void setSocSacAmount(Integer socSacAmount) {
-		this.socSacAmount = socSacAmount;
+	public void setSoaSacAmount(Integer soaSacAmount) {
+		this.soaSacAmount = soaSacAmount;
 	}
 
-	public Integer getSocLacAmount() {
-		return socLacAmount;
+	public Integer getSoaLacAmount() {
+		return soaLacAmount;
 	}
 
-	public void setSocLacAmount(Integer socLacAmount) {
-		this.socLacAmount = socLacAmount;
+	public void setSoaLacAmount(Integer soaLacAmount) {
+		this.soaLacAmount = soaLacAmount;
 	}
 
-	public Integer getSocEmergencyAmount() {
-		return socEmergencyAmount;
+	public Integer getSoaEmergencyAmount() {
+		return soaEmergencyAmount;
 	}
 
-	public void setSocEmergencyAmount(Integer socEmergencyAmount) {
-		this.socEmergencyAmount = socEmergencyAmount;
+	public void setSoaEmergencyAmount(Integer soaEmergencyAmount) {
+		this.soaEmergencyAmount = soaEmergencyAmount;
 	}
 
-	public Integer getSocLoanGivenAmount() {
-		return socLoanGivenAmount;
+	public Integer getSoaLoanGivenAmount() {
+		return soaLoanGivenAmount;
 	}
 
-	public void setSocLoanGivenAmount(Integer socLoanGivenAmount) {
-		this.socLoanGivenAmount = socLoanGivenAmount;
+	public void setSoaLoanGivenAmount(Integer soaLoanGivenAmount) {
+		this.soaLoanGivenAmount = soaLoanGivenAmount;
 	}
 
-	public Integer getSocFund() {
-		return socFund;
+	public Integer getSoaFund() {
+		return soaFund;
 	}
 
-	public void setSocFund(Integer socFund) {
-		this.socFund = socFund;
+	public void setSoaFund(Integer soaFund) {
+		this.soaFund = soaFund;
 	}
 
-	public Timestamp getSocTransacted() {
-		return socTransacted;
+	public Timestamp getSoaTransacted() {
+		return soaTransacted;
 	}
 
-	public void setSocTransacted(Timestamp socTransacted) {
-		this.socTransacted = socTransacted;
+	public void setSoaTransacted(Timestamp soaTransacted) {
+		this.soaTransacted = soaTransacted;
 	}
 
-	public String getSocTransactedBy() {
-		return socTransactedBy;
+	public String getSoaTransactedBy() {
+		return soaTransactedBy;
 	}
 
-	public void setSocTransactedBy(String socTransactedBy) {
-		this.socTransactedBy = socTransactedBy;
+	public void setSoaTransactedBy(String soaTransactedBy) {
+		this.soaTransactedBy = soaTransactedBy;
 	}
 
 }
