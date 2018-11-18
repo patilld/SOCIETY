@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:include="fragments/cssimport :: cssimport">
+	<title></title>
+</head>
+<script type="text/javascript" th:src="@{/pagespecificjs/societyregistration.js}"></script>
+<div>
+	<th:block th:include="fragments/informationmessage :: informationmessage"></th:block>
+</div>
+<body class="textColorBlue">
+	<table width="100%" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="templateSidebar" >
+				<!-- navigation block -->
+				<div>
+					<th:block th:include="fragments/sidebar :: sidebar"></th:block>
+				</div> <!-- end of navigation block -->
+			</td>
+			<td class="paddingLeft50Px">
+				<table width="100%" cellspacing="0" cellpadding="0">
+					<tr>
+						<td class="slimDataTitleBold16">
+							Society Registration
+						</td>
+					</tr>
+					<tr height="50px"></tr>
+					<tr>
+						<td>
+							<form id="frm1" name="frm1" th:action="@{saveSocietyDetails}" th:object="societyRegistrationForm" th:method="POST">
+								<table width="100%" cellspacing="0" cellpadding="">
+									<tr>
+										<td valign="top">
+											<table width="100%" cellspacing="0" cellpadding="0">
+												<tr>
+													<td class="slimDataBold">Society Name<span class="asteriskRed">*</span></td>
+													<td><input type="text" id="socName" name="socName" th:field="*socName" class="width170"></input></td>
+												</tr>
+												<tr>
+													<td class="slimDataBold">Society License Start Date</td>
+													<td><input type="text" id="socLicenseStartDate" name="socLicenseStartDate" th:field="*socLicenseStartDate" class="width170"></input></td>
+												</tr>
+												<tr>
+													<td class="slimDataBold">Society License End Date</span></td>
+													<td><input type="text" id="socLicenseEndDate" name="socLicenseEndDate" th:field="*socLicenseEndDate" class="width170"></input></td>
+												</tr>
+												<tr>
+													<td class="slimDataBold">Society Status</td>
+													<td><input type="text" id="socIsActive" name="socIsActive" th:field="*socIsActive" class="width170"></input></td>
+												</tr>
+												<tr>
+													<td></td>
+													<td align="left" style="color:white; padding-top:10px;">
+														<button type="button" onClick="javascript:validateForm();">Register</button>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</form>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="copyright">
+				<th:block th:include="fragments/footer :: footer"></th:block>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

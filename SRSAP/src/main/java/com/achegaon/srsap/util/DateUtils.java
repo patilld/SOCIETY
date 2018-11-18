@@ -30,5 +30,17 @@ public class DateUtils {
 		}
 		return sqlDate;
 	}
+	
+	public java.sql.Timestamp convertStringToSqlTimestamp(String timestamp) {
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+		java.sql.Timestamp sqlTimestamp = null;
+		try {
+			java.util.Date d = sdf1.parse(timestamp);
+			sqlTimestamp = new java.sql.Timestamp(d.getTime());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return sqlTimestamp;
+	}
 
 }
