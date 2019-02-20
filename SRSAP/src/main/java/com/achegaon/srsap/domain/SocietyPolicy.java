@@ -54,11 +54,11 @@ public class SocietyPolicy {
 	@Column(name = "spl_loan_max_emi")
 	private Short splLoanMaxEmi;
 	
-	@Column(name = "spl_payment_date")
-	private Date splPaymentDate;
+	@Column(name = "spl_payment_day")
+	private Date splPaymentDay;
 	
-	@Column(name = "spl_payment_due_date")
-	private Date splPaymentDueDate;
+	@Column(name = "spl_payment_due_day")
+	private Date splPaymentDueDay;
 	
 	@Column(name = "spl_updated")
 	private Timestamp splUpdated;
@@ -146,20 +146,20 @@ public class SocietyPolicy {
 		this.splLoanMaxEmi = splLoanMaxEmi;
 	}
 
-	public Date getSplPaymentDate() {
-		return splPaymentDate;
+	public Date getSplPaymentDay() {
+		return splPaymentDay;
 	}
 
-	public void setSplPaymentDate(Date splPaymentDate) {
-		this.splPaymentDate = splPaymentDate;
+	public void setSplPaymentDay(Date splPaymentDay) {
+		this.splPaymentDay = splPaymentDay;
 	}
 
-	public Date getSplPaymentDueDate() {
-		return splPaymentDueDate;
+	public Date getSplPaymentDueDay() {
+		return splPaymentDueDay;
 	}
 
-	public void setSplPaymentDueDate(Date splPaymentDueDate) {
-		this.splPaymentDueDate = splPaymentDueDate;
+	public void setSplPaymentDueDay(Date splPaymentDueDay) {
+		this.splPaymentDueDay = splPaymentDueDay;
 	}
 
 	public Timestamp getSplUpdated() {

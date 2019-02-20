@@ -105,7 +105,7 @@ CREATE TABLE society_accounts (
 
 CREATE TABLE society_policies (
   spl_id MEDIUMINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
-  spl_start_date DATE NULL,
+  spl_start_date DATE NOT NULL,
   spl_late_opening_charge_percent TINYINT UNSIGNED NULL,
   spl_application_fee SMALLINT UNSIGNED NULL,
   spl_monthly_share SMALLINT UNSIGNED NULL,
@@ -114,8 +114,8 @@ CREATE TABLE society_policies (
   spl_share_late_fee SMALLINT UNSIGNED NULL,
   spl_loan_max_amount INTEGER UNSIGNED NULL,
   spl_loan_max_emi SMALLINT UNSIGNED NULL,
-  spl_payment_date DATE NULL,
-  spl_payment_due_date DATE NULL,
+  spl_payment_day TINYINT UNSIGNED NULL,
+  spl_payment_due_day TINYINT UNSIGNED NULL,
   spl_updated TIMESTAMP NULL,
   spl_updated_by VARCHAR(45) NULL,
   PRIMARY KEY(spl_id)
